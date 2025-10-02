@@ -135,14 +135,14 @@
                 const tagLine = tagLineInput.value.trim();
                 const region = regionSelect.value;
                 const regionGen = null;
-                if (region == na1 || region == la1 || region == la2 || region == br1) {
-                    regionGen = americas
+                if (region == "na1" || region == "la1" || region == "la2" || region == "br1") {
+                    regionGen = "americas"
                 }
-                else if (region == euw1 || region == eun1 || region == tr1) {
-                    regionGen = europe
+                else if (region == "euw1" || region == "eun1" || region == "tr1") {
+                    regionGen = "europe"
                 }
-                else if (region == kr || region == oc1 || region == ru || region == jp1) {
-                    regionGen = asia
+                else if (region == "kr" || region == "oc1" || region == "ru" || region == "jp1") {
+                    regionGen = "asia"
                 }
                 const messageDiv = document.getElementById('lookup-message');
                 const resultsDiv = document.getElementById('summoner-results');
