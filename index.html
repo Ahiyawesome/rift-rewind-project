@@ -134,16 +134,8 @@
                 const summonerName = summonerNameInput.value.trim();
                 const tagLine = tagLineInput.value.trim();
                 const region = regionSelect.value;
-                const regionGen = null;
-                if (region == "na1" || region == "la1" || region == "la2" || region == "br1") {
-                    regionGen = "americas"
-                }
-                else if (region == "euw1" || region == "eun1" || region == "tr1") {
-                    regionGen = "europe"
-                }
-                else if (region == "kr" || region == "oc1" || region == "ru" || region == "jp1") {
-                    regionGen = "asia"
-                }
+                const regDict = {na1:"americas", la1:"americas", la2:"americas", br1:"americas", euw1:"europe", eun1:"europe", tr1:"europe", kr:"asia", oc1:"asia", ru:"asia", jp1:"asia"};
+                const regionGen = regDict[region];
                 const messageDiv = document.getElementById('lookup-message');
                 const resultsDiv = document.getElementById('summoner-results');
                 
