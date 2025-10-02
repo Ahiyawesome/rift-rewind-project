@@ -8,8 +8,9 @@ def lambda_handler(event, context):
         body = json.loads(event['body'])
         summoner_name = body.get('summonerName', '').strip()
         tagLine = body.get('tagLine', 'NA1').strip()
-        regionGen = body.get('regionGen', 'americas').strip()  # Default to americas
         region = body.get('region', 'na1')  # Default to NA1
+        regDict = {"na1":"americas", "la1":"americas", "la2":"americas", "br1":"americas", "euw1":"europe", "eun1":"europe", "tr1":"europe", "kr":"asia", "oc1":"asia", "ru":"asia", "jp1":"asia"};
+        regionGen = regDict[region]
         
         # Validate input
         if not summoner_name:
