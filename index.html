@@ -134,8 +134,6 @@
                 const summonerName = summonerNameInput.value.trim();
                 const tagLine = tagLineInput.value.trim();
                 const region = regionSelect.value;
-                const regDict = {na1:"americas", la1:"americas", la2:"americas", br1:"americas", euw1:"europe", eun1:"europe", tr1:"europe", kr:"asia", oc1:"asia", ru:"asia", jp1:"asia"};
-                const regionGen = regDict[region];
                 const messageDiv = document.getElementById('lookup-message');
                 const resultsDiv = document.getElementById('summoner-results');
                 
@@ -159,7 +157,6 @@
                         body: JSON.stringify({
                             summonerName: summonerName,
                             tagLine: tagLine,
-                            regionGen: regionGen,
                             region: region
                         })
                     });
