@@ -79,6 +79,8 @@
                 <div class="form-group">
                     <label for="summoner-name">Summoner Name</label>
                     <input type="text" id="summoner-name" name="summoner-name" placeholder="Enter summoner name" required>
+                    <label for="tagLine">Tag Line</label>
+                    <input type="text" id="tagLine" name="tagLine" placeholder="Enter Tag Line">
                 </div>
                 <div class="form-group">
                     <label for="region">Region</label>
@@ -125,11 +127,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             const lookupBtn = document.getElementById('lookup-btn');
             const summonerNameInput = document.getElementById('summoner-name');
+            const tagLineInput = document.getElementById('tagLine');
             const regionSelect = document.getElementById('region');
             
             lookupBtn.addEventListener('click', async function() {
                 const summonerName = summonerNameInput.value.trim();
+                const tagLine = tagLineInput.value.trim();
                 const region = regionSelect.value;
+                const regionGen;
+                if (region == na1 || region == la1 || region == la2 || region == br1) {
+                    regionGen = americas
+                }
+                else if (region == euw1 || region == eun1 || region == tr1) {
+                    regionGen = europe
+                }
+                else if (region == kr || region == oc1 || region == ru || region == jp1) {
+                    regionGen = asia
+                }
                 const messageDiv = document.getElementById('lookup-message');
                 const resultsDiv = document.getElementById('summoner-results');
                 
@@ -152,6 +166,8 @@
                         },
                         body: JSON.stringify({
                             summonerName: summonerName,
+                            tagLine: tagLine,
+                            regionGen: regionGen,
                             region: region
                         })
                     });
